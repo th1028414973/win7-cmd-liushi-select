@@ -11,9 +11,11 @@ win7微软不更新了吗？那我帮忙更新下哈： 补丁功能，win7 64�
 使用Stud_PE把编译出来的dll文件挂到conhost.exe里，再替换原先的conhost.exe。
 
 原先cmd选中效果
-<img width="716" height="532" alt="未标题-1" src="https://github.com/user-attachments/assets/dd0b29be-6f58-444a-9891-633d6cf44589" />
+<img width="716" height="532" alt="未标题-1" src="https://github.com/user-attachments/assets/90cf2605-60a8-4193-8c28-3ccc3991e1a0" />
+
 
 替换后cmd选中效果
-<img width="659" height="502" alt="未标题-2" src="https://github.com/user-attachments/assets/422afcf2-074a-4601-903a-60809c02c751" />
+<img width="659" height="502" alt="未标题-2" src="https://github.com/user-attachments/assets/3f4eef32-ba7f-4494-a033-24a1f614297c" />
+
 
 有什么问题可以留言。
