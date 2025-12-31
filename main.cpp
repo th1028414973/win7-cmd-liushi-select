@@ -14,7 +14,7 @@ PSET_CLIPBOARD_DATA pOriginalSetClipboardData = SetClipboardData;
 static short cmdWidth = -1;
 static int g_FontW, g_FontH;
 // 全局变量，记录选区的锚点
-static int g_StartX = -1, g_StartY = -1;
+static int g_StartX = -1, g_StartY = -1, Prevmsg;
 static int g_CurX = -1, g_CurY = -1, g_PrevCurY, g_PrevCurX;
 static bool g_IsSelecting = true;
 WNDPROC g_OrgWindowProc = NULL;
@@ -100,9 +100,16 @@ LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
     case WM_ERASEBKGND:
         return 1;
     case WM_MOUSEACTIVATE:
-        g_IsSelecting = false;
-        return MA_ACTIVATEANDEAT; 
+        if (Prevmsg == WM_NCHITTEST) //WM_NCMOUSEMOVE
+        {
+            g_IsSelecting = false;
+            return MA_ACTIVATEANDEAT; 
+            
+        }
+        
+        break;
     case WM_LBUTTONDOWN:
+        Prevmsg = false;
         g_StartX = g_CurX = (short)LOWORD(lParam);
         g_StartY = g_CurY = (short)HIWORD(lParam);
         g_PrevCurY = g_CurY;
@@ -142,8 +149,7 @@ LRESULT CALLBACK MyWindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
             g_IsSelecting = true;
         }
     }
-    
-   
+    Prevmsg = msg;
     return CallWindowProc(g_OrgWindowProc, hWnd, msg, wParam, lParam);
 }
 
