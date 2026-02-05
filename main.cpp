@@ -73,8 +73,12 @@ std::wstring FixClipboardStreaming(std::wstring raw, size_t startcol, int endcol
         size_t nextNL = raw.find(L"\r\n", start);
         if (nextNL != std::wstring::npos) {
             std::wstring line = raw.substr(start, nextNL - start);
-
-            if (GetConsoleDisplayWidth(line) + 1 >= (size_t)realColumns - startcol) {
+            size_t w = GetConsoleDisplayWidth(line);
+            
+            if (w + 1 >= (size_t)realColumns - startcol) {
+                if (line.back() <= 255 && w == (size_t)realColumns - startcol - 1){
+                    line += L" ";
+                }
                 startcol = 0;
                 result += line;
             }
