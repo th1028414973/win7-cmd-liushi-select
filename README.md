@@ -16,5 +16,3 @@ win7微软不更新了吗？那我帮忙更新下哈： 补丁功能，win7 64�
 
 <img width="659" height="502" alt="未标题-2" src="https://github.com/user-attachments/assets/3f4eef32-ba7f-4494-a033-24a1f614297c" />
 
-
-有什么问题可以留言。
